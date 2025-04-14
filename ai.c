@@ -62,18 +62,22 @@ void mediumComputer(char board[3][3]) {
 // Guide: neverstopbuilding.com/blog/minimax
 
 int minimax(char board[3][3], bool isMaximizing){
-    if (checkWin(board, 'O')) return +10;
-    if (checkWin(board, 'X')) return -10;
-    if (isBoardFull(board)) return 0;
+    if (checkWin(board, 'O')) {return +10;}
+    if (checkWin(board, 'X')) {return -10;}
+    if (isBoardFull(board)) {return 0;}
 
+    /*
+    If its the ai turn we want the higest score (start at -1000)
+    If its the player turn, we want the lowest score (start at +1000)
+    */
     int bestScore = isMaximizing ? -1000 : 1000;
 
     for (int i=0; i<3; i++){
         for(int j=0; j<3; j++){
             if (board[i][j] == ' '){
                 board[i][j] = isMaximizing ? 'O' : 'X';
-                int score = minimax(board, !isMaximizing);
-                board[i][j] = ' ';
+                int score = minimax(board, !isMaximizing); // The move gets evaluated
+                board[i][j] = ' '; //undo move
                 if (isMaximizing){
                     if (score > bestScore){
                         bestScore = score;
@@ -86,7 +90,7 @@ int minimax(char board[3][3], bool isMaximizing){
             }
         }
     }
-    return bestScore;
+    return bestScore; // return best possible score
 }
 
 void hardComputer(char board[3][3]){
