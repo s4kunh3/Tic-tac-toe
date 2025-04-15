@@ -1,7 +1,7 @@
 # Tic Tac Toe
 
 ## How to execute it
-On the terminal run make, that should compile all c files, if you dont want to pollute you folder then you can run make clean, which removes the compiled files to keep the project file clean.
+On the terminal run make, that should compile all c files.
 
 ```bash
     make
@@ -38,7 +38,7 @@ When you start the game is going to introduce you and then make you pick the dif
 
 The board is a simple 3x3 tic-tac-toe board. You will be prompted to pick the area of the board in which you will place your ' X '. Example:
 
-```bash
+```text
     Enter row (0-2) and column (0-2): 0 1
 
            0   1   2 
